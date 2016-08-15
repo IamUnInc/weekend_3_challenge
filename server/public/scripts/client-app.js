@@ -11,11 +11,12 @@ $('#calc-form').on('click', '#add', function () {
 
   $.each($('#calc-form').serializeArray(), function (i, field) {
       numbers[field.name] = field.value;
+      numbers['type'] = 'add';
     });
   console.log('Numbers submitted are ', numbers);
 $.ajax({
   type: 'POST',
-  url: '/number/one',
+  url: '/number',
   data: numbers,
   success: function (response) {
     console.log('POST /Calculator works!');
@@ -36,12 +37,13 @@ $('#calc-form').on('click', '#subtract', function () {
 
   $.each($('#calc-form').serializeArray(), function (i, field) {
       numbers[field.name] = field.value;
+      numbers['type'] = 'subtract';
     });
   console.log('Numbers submitted are ', numbers);
 
 $.ajax({
   type: 'POST',
-  url: '/number/two',
+  url: '/number',
   data: numbers,
   success: function (response) {
     console.log('POST /Calculator works!');
@@ -62,12 +64,13 @@ $('#calc-form').on('click', '#multiply', function () {
 
   $.each($('#calc-form').serializeArray(), function (i, field) {
       numbers[field.name] = field.value;
+      numbers['type'] = 'multiply';
     });
   console.log('Numbers submitted are ', numbers);
 
 $.ajax({
   type: 'POST',
-  url: '/number/three',
+  url: '/number',
   data: numbers,
   success: function (response) {
     console.log('POST /Calculator works!');
@@ -88,12 +91,13 @@ $('#calc-form').on('click', '#divide', function () {
 
   $.each($('#calc-form').serializeArray(), function (i, field) {
       numbers[field.name] = field.value;
+      numbers['type'] = 'divide';
     });
   console.log('Numbers submitted are ', numbers);
 
 $.ajax({
   type: 'POST',
-  url: '/number/four',
+  url: '/number',
   data: numbers,
   success: function (response) {
     console.log('POST /Calculator works!');

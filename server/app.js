@@ -10,36 +10,26 @@ app.set('port', process.env.PORT || 3000);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post('/number/one', function (req, res) {
+app.post('/number', function (req, res) {
   var nums = req.body;
   console.log(nums);
+  if(nums.type == 'add'){
   numbers = math.addThem(nums);
   console.log(numbers);
   res.sendStatus(201);
-});
-
-app.post('/number/two', function (req, res) {
-  var nums = req.body;
-  console.log(nums);
+}else if (nums.type == 'subtract'){
   numbers = math.subThem(nums);
   console.log(numbers);
   res.sendStatus(201);
-});
-
-app.post('/number/three', function (req, res) {
-  var nums = req.body;
-  console.log(nums);
+} else if (nums.type == 'multiply') {
   numbers = math.multThem(nums);
   console.log(numbers);
   res.sendStatus(201);
-});
-
-app.post('/number/four', function (req, res) {
-  var nums = req.body;
-  console.log(nums);
+} else if (nums.type == 'divide'){
   numbers = math.divThem(nums);
   console.log(numbers);
   res.sendStatus(201);
+}
 });
 
 app.get('/number', function (req, res) {
